@@ -1,0 +1,11 @@
+[project]
+name = "05-resume-screening"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "groq>=1.7.0",
+    "pydantic>=2.13.5",
+    "pypdf>=6.19.0",
+    "python-docx>=1.2.0",
+    "python-dotenv>=1.2.3",
+]
