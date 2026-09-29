@@ -1,101 +1,41 @@
-AI Resume Screening
+# AI Resume Screening
 
 An AI-powered resume–job description (JD) matcher built with Python, Pydantic, and Groq.
 
-The project accepts a job description as text and evaluates PDF or Word resumes against it. It extracts structured information from the job description and resumes, then uses an LLM to produce a match score, verdict, and reasoning.
+This project analyzes resumes against job descriptions using Large Language Models (LLMs). It extracts structured information from resumes and job descriptions, compares them, and generates a match score with supporting reasoning.
 
-Features
+## Features
 
-Accepts job descriptions as text input.
+- **PDF and DOCX Parsing:** Automatically extracts text from PDF and Word resumes.
+- **Job Description Analysis:** Uses an LLM to extract job requirements, skills, responsibilities, and education requirements.
+- **Structured Data Extraction:** Uses Pydantic schemas to convert unstructured text into structured data.
+- **AI-Powered Matching:** Compares candidate skills, experience, and qualifications against job requirements.
+- **Match Score:** Generates a match percentage based on the resume and job description.
+- **Detailed Reasoning:** Identifies matching skills, missing skills, and relevant experience.
+- **Candidate Evaluation:** Provides a match verdict and supporting details for human review.
 
-Parses PDF and Word (.docx) resumes and extracts text.
+## Tech Stack
 
-Uses Pydantic schemas to structure job-description and resume data.
+- **Language:** Python
+- **LLM:** Groq API
+- **Model:** OpenAI GPT-OSS 120B
+- **Data Validation:** Pydantic
+- **PDF Processing:** pypdf
+- **Word Document Processing:** python-docx
+- **Environment Management:** python-dotenv, uv
 
-Uses Groq to compare resume information with job requirements.
+## Project Structure
 
-Returns a match score, verdict, and supporting details.
-
-Tech Stack
-
-Python
-
-Groq API
-
-Pydantic
-
-pypdf
-
-python-docx
-
-python-dotenv
-
-uv
-
-Project Structure
-
+```text
 AI-Resume-Screening/
-├── resumes/              # Add PDF or DOCX resumes here
+│
+├── resumes/
+│   └── resume.pdf
+│
 ├── main.py
 ├── resume_parser.py
 ├── pyproject.toml
 ├── .python-version
-├── .env                  # Create locally; do not commit
-└── .gitignore
-
-Setup
-
-1. Clone the repository
-
-git clone https://github.com/OMSHIVSHARAN/AI-Resume-Screening.git
-cd AI-Resume-Screening
-
-2. Install dependencies
-
-This project uses uv.
-
-uv sync
-
-3. Configure the Groq API key
-
-Create a .env file in the project root:
-
-GROQ_API_KEY=your_groq_api_key
-
-Replace the placeholder with your own API key. Keep the .env file private; it should never be committed.
-
-4. Add resumes
-
-Place PDF or Word (.docx) resumes in the resumes/ directory.
-
-5. Run
-
-uv run python main.py
-
-Resume Bullet
-
-AI-powered resume–JD matcher built with Python, Pydantic, and Groq.
-
-How It Works
-
-Read the job description provided as text.
-
-Extract structured job requirements using a Pydantic schema and an LLM.
-
-Extract text from PDF or DOCX resumes.
-
-Parse resume content into structured data.
-
-Compare the structured resume with the job requirements using an LLM.
-
-Return a match score, verdict, and reasoning for human review.
-
-Notes
-
-The match score is an LLM-generated estimate, not an objective measure of candidate ability.
-
-Review the extracted information and supporting reasoning before making any hiring-related decision.
-
-Scanned PDFs may require OCR; text extraction alone may not read their contents.
-
-Do not upload real candidates' personal information to a public repository.
+├── .gitignore
+├── .env
+└── README.md
